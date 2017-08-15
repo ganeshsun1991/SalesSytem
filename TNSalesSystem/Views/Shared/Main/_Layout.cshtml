@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/Content/menu/mui.min.css" rel="stylesheet" />
+    <link href="~/Content/menu/style.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.12.4.js"></script>
+    <script src="~/Content/menu/script.js"></script>
+    <script src="~/Content/menu/mui.min.js"></script>
+</head>
+<body id="bodyid">
+
+    <div id="sidedrawer" class="mui--no-user-select">
+        <div id="sidedrawer-brand" class="mui--appbar-line-height">
+            <span class="mui--text-title">Menu</span>
+        </div>
+        <div class="mui-divider"></div>
+        <ul>
+            <li>
+                <strong>User</strong>
+                <ul>
+                    <li><a href="../User/AddUser">Add/Edit/Delete User</a></li> 
+                </ul>
+            </li>
+            <li>
+                <strong>Shop</strong>
+                <ul>
+                    <li><a href="../Shop/ShopDataNew">Add/Edit/Delete Shop</a></li>                   
+                </ul>
+            </li>
+            <li>
+                <strong>Category 3</strong>
+                <ul>
+                    <li><a href="#">Item 1</a></li>
+                    <li><a href="#">Item 2</a></li>
+                    <li><a href="#">Item 3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <header id="header">
+        <div class="mui-appbar mui--appbar-line-height">
+            <div class="mui-container-fluid">
+                <a class="sidedrawer-toggle mui--visible-xs-inline-block mui--visible-sm-inline-block js-show-sidedrawer">☰</a>
+                <a class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-sidedrawer">☰</a>
+                <span>Goverment of TamilNadu</span>
+            </div>
+        </div>
+    </header>
+    <div id="content-wrapper">
+        <div class="mui--appbar-height"></div>
+        <div class="mui-container-fluid">
+            @RenderBody()
+        </div>
+    </div>
+    <footer id="footer">
+        <div class="mui-container-fluid">
+        </div>
+    </footer>
+</body>
+</html>

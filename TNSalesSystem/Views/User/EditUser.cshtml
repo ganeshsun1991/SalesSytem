@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Edit User";
+    Layout = "~/Views/Shared/Main/_Layout.cshtml";
+}
+<link href="~/Content/Common/Pageing.css" rel="stylesheet" />
+
+<div class="container">
+    <!-- pager -->
+    @if (ViewBag.EndPage >= 1)
+    {
+        <ul class="pagination">
+            @if (ViewBag.CurrentPage >= 1)
+            {
+                <li><a href="#">«</a></li>
+            }
+            @for (var page = ViewBag.StartPage; page <= ViewBag.EndPage; page++)
+            {
+
+                <li><a class="@(page == ViewBag.CurrentPage ? "active" : "")" href="#">1</a></li>
+            }
+            @if (ViewBag.CurrentPage <= ViewBag.TotalPages)
+            {
+            
+                <li><a href="#">»</a></li>
+            }
+        </ul>
+    }
+
+
+</div>

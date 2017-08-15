@@ -1,0 +1,22 @@
+﻿@using System.Collections;
+@{
+    Layout = null;
+    Hashtable ht = (Hashtable)ViewBag.Model;
+}
+<params>
+    @if (ht != null)
+    {
+        if (ht.ContainsKey("Option"))
+        {
+             <param name="Option" value="@ht["Option"]" />
+        }
+        if (ht.ContainsKey("CardId"))
+        {
+             <param name="CardId" value="@ht["CardId"]" />
+        }
+        if (ht.ContainsKey("CardId"))
+        {
+             <param name="Status" value="@ht["Status"]" />
+        }
+    }
+</params>

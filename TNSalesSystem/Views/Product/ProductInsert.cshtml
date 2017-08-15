@@ -1,0 +1,306 @@
+﻿@model TNSalesSystem.Domain.Product_Details.ProductDetails
+
+@{
+    ViewBag.Title = "ProductInsert";
+    Layout = "~/Views/Shared/Main/_Layout.cshtml";
+}
+<script src="~/Content/jquery.modal-master/js/jquery-latest.min.js"></script>
+<link href="~/Content/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" />
+<link href="~/Content/jquery.modal-master/css/jquery.modal.theme-xenon.css" rel="stylesheet" />
+<link href="~/Content/jquery.modal-master/css/jquery.modal.theme-atlant.css" rel="stylesheet" />
+<script src="~/Content/jquery.modal-master/js/jquery.modal.js"></script>
+<script src="../../Content/jquery-ui-1.11.4.custom/external/jquery/jquery.js" type="text/javascript"></script>
+<link href="../../Content/x-editable-master/dist/jqueryui-editable/css/jqueryui-editable.css"
+    rel="stylesheet" />
+<script src="../../Content/x-editable-master/dist/jqueryui-editable/js/jqueryui-editable.js"></script>
+<script type="text/javascript" src="../../Content/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+<link href="../../Content/jquery-ui-1.11.4.custom/jquery-ui.css" rel="stylesheet"
+    type="text/css" />
+<script src="../../Content/jquery-ui-1.11.4.custom/jquery-ui.min.js" type="text/javascript"></script>
+<link href="../../Content/jquery-ui-1.11.4.custom/jquery-ui.structure.css" rel="stylesheet"
+    type="text/css" />
+<link href="../../Content/jquery-ui-1.11.4.custom/jquery-ui.structure.min.css" rel="stylesheet"
+    type="text/css" />
+<link href="../../Content/jquery-ui-1.11.4.custom/jquery-ui.theme.css" rel="stylesheet"
+    type="text/css" />
+<link href="../../Content/jquery-ui-1.11.4.custom/jquery-ui.theme.min.css" rel="stylesheet"
+    type="text/css" />
+<link href="~/Content/MainCSS/Main.css" rel="stylesheet" />
+<script src="~/Content/chosen/chosen.jquery.min.js"></script>
+<link href="~/Content/chosen/chosen.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui-1.11.4.custom/Custom.css" rel="stylesheet" />
+<script>
+    var $j = jQuery.noConflict();
+    $j(document).ready(function () {
+        CallClear();
+        $j(".chosen-select").chosen({ max_selected_options: 5 });
+        $j("#txtCreatedDate").datepicker().datepicker("setDate", new Date());
+        $j("#tabs").tabs();
+        CallProductDataAjax();
+        $j.fn.editable.defaults.mode = 'inline';
+    });
+
+    function CallProductDataAjax() {
+        $j.ajax({
+            url: '../Product/ProductDetailsAjax',
+            beforeSend: function () {
+                $j("#productdata").html("<img src=\"../../Content/images/Preloader_8.gif\" align=\"center\" class=\"loadimg\"/>");
+            },
+            error: function () {
+                // alert("An error occoured while geting records");
+                modal({
+                    type: 'error',
+                    title: 'Error',
+                    text: 'An error occoured while getting records',
+                    center: false,
+                });
+            },
+            success: function (response) {
+                $j("#productdata").html('');
+                $j("#productdata").html(response);
+                initEditable();
+            },
+            type: 'POST'
+        });
+    }
+    function ValidateForm() {
+        if (document.getElementById("txtProductName").value == null || document.getElementById("txtProductName").value == "") {
+            //bootbox.alert("Please enter the product name.", function () {
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'Please enter the product name.',
+                center: false,
+            });
+
+            return false;
+        }
+        if (document.getElementById("ddlUnit").value == null || document.getElementById("ddlUnit").value == "Select") {
+            //bootbox.alert("Please enter the product name.", function () {
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'Please select the product unit.',
+                center: false,
+            });
+
+            return false;
+        }
+        if (document.getElementById("txtProductRate").value == null || document.getElementById("txtProductRate").value == "") {
+            //bootbox.alert("Please enter the product name.", function () {
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'Please enter the product rate.',
+                center: false,
+            });
+
+            return false;
+        }
+        else {
+            document.getElementById("ProductInsert").submit();
+            CallClear();
+        }
+    }
+    function CallClear() {
+        $j('#txtProductName').val('');
+        $j('#txtDescrption').val('');
+        $j('#txtCreatedDate').val('');
+        $j('#ddlProductType').prop('selectedIndex', 0);
+    }
+
+    function CallReset() {
+        CallClear();
+        window.location.reload();
+    }
+    function initEditable() {
+        $j('.txtProductName').editable({
+            type: 'text',
+            name: "Value",
+            url: '../Card/UnitWiseProductAllotmentAjaxUpdate', // Send ajax request with new value on /post
+            title: 'Enter product name',
+            inputclass: 'inlinetextbox',
+            validate: function (value) {
+                if ($j.trim(value) == '') {
+                    return 'This field is required';
+                }
+                else if (isNaN($j.trim(value))) {
+                    return 'Enter digits only';
+                }
+            }
+        });
+        $j('.ddlUnit').editable({
+            type: 'select',
+            name: "Descrption",
+            url: '../Card/UnitWiseProductAllotmentAjaxUpdate', // Send ajax request with new value on /post
+            source: [{ value: "K.G", text: "K.G" }, { value: "Liter", text: "Liter" }, { value: "Packet", text: "Packet(1 K.G)" }],
+            inputclass: 'inlinetextbox'
+        });
+        $j('.txtProductRate').editable({
+            type: 'text',
+            name: "Descrption",
+            url: '../Card/UnitWiseProductAllotmentAjaxUpdate', // Send ajax request with new value on /post
+
+            inputclass: 'inlinetextbox',
+            validate: function (value) {
+                if ($j.trim(value) == '') {
+                    return 'This field is required';
+                }
+                else if (isNaN($j.trim(value))) {
+                    return 'Enter digits only';
+                }
+            }
+        });
+        $j('.txtDescrption').editable({
+            type: 'text',
+            name: "Value",
+            url: '../Card/UnitWiseProductAllotmentAjaxUpdate', // Send ajax request with new value on /post
+            title: 'Enter data name',
+            inputclass: 'inlinetextbox'
+        });
+        $j('.ddlIsActive').editable({
+            type: 'select',
+            name: "Value",
+            url: '../Card/UnitWiseProductAllotmentAjaxUpdate', // Send ajax request with new value on /post
+            title: 'Enter is active',
+            inputclass: 'inlinetextbox',
+            source: [{ value: 1, text: "Yes" }, { value: 0, text: "No" }]
+        });
+
+        $j('.editable').editable('toggleDisabled');
+        //$('.editbtn').click(function (e) {
+        //    $('.editable').editable('toggleDisabled');
+        //});
+    }
+    function EnableInlineEdit(rowid) {
+        $j('#' + rowid + ' .editable').editable('toggleDisabled');
+    }
+</script>
+<style type="text/css">
+    td {
+        border: none;
+        font-size: 12px;
+        font-weight: 600;
+        color: black;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+    }
+
+    .chosen-choices {
+        border-radius: 4px;
+        height: 26px;
+    }
+
+    .tddata {
+        font-size: 12px;
+        font-weight: normal;
+        color: black !important;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        padding: 0px 0px 0px 0px;
+        height: 10px;
+        border: 1px solid black;
+        text-align: center;
+    }
+
+    .loadimg {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 80px;
+        width: 100px;
+    }
+
+    .imgcls {
+        height: 30px;
+        width: 30px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+        .imgcls:hover {
+            cursor: pointer;
+        }
+
+    .data {
+        color: black !important;
+    }
+
+    .chosen-container {
+        width: 178px !important;
+    }
+
+    a.editable-click:hover {
+        cursor: pointer;
+    }
+</style>
+@using (Html.BeginForm("ProductInsert", "Product", FormMethod.Post, new { @id = "ProductInsert", @name = "ProductInsert" }))
+{
+    <div id="center">
+        <table cellspacing="0" cellpadding="0" border="0" align="center">
+            <tbody>
+                <tr>
+                    <td class="reborder">Product Details </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <table cellpadding="3px" cellspacing="3px" align="center" style="background-color: ButtonShadow;" border="0">
+        <tr>
+            <td colspan="4" class="RowHeadSection">Product Details
+            </td>
+        </tr>
+        <tr>
+            <td>Enter product name
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.ProductName, new { @id = "txtProductName", @class = "normaltextbox" })
+            </td>
+            <td>Choose product type
+            </td>
+            <td>
+                @Html.DropDownListFor(Model => Model.ProductType, (SelectList)ViewBag.ProductTypes, new { @id = "ddlProductType", @class = "chosen-select normalselectbox", @style = "width: 180px;height: 28px;" })
+            </td>
+        </tr>
+        <tr>
+            <td>Choose product unit
+            </td>
+            <td>
+                @Html.DropDownListFor(Model => Model.Unit, (SelectList)ViewBag.Units, new { @id = "ddlUnit", @class = "chosen-select normalselectbox", @style = "width: 180px;height: 28px;" })
+            </td>
+            <td>Enter prodct rate per kg/liter/packet
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.ProductRate, new { @id = "txtProductRate", @class = "normaltextbox  " })
+            </td>
+        </tr>
+        <tr>
+            <td>Enter descrption
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Descrption, new { @id = "txtDescrption", @class = "normaltextbox  " })
+            </td>
+            <td>Date
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.CreatedDate, new { @id = "txtCreatedDate", @class = "normaltextbox  " })
+            </td>
+        </tr>
+    </table>
+    <br />
+    <div style="width: 26%; display: block; margin-left: auto; margin-right: auto;">
+        <input type="button" value="Submit" class="myButton" onclick="ValidateForm()" />
+        <input type="button" value="Clear" class="myButton" onclick="CallReset()" />
+    </div>
+}
+<br />
+<br />
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1" style="color: Black; font-size: 12px!important;">Product Item List</a></li>
+    </ul>
+    <div id="productdata" style="padding: 5px;">
+    </div>
+</div>

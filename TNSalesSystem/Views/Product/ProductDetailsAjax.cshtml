@@ -1,0 +1,82 @@
+﻿@{
+    Layout = null;
+}
+@using TNSalesSystem.Domain.Product_Details
+@if (ViewBag.productdetailslist != null && ViewBag.productdetailslist.Count > 0)
+{
+    <table id="TblTransactions" border="1" width="765px" cellpadding="0" cellspacing="0">
+        <thead>
+            <th>Edit
+            </th>
+            <th>Product Name
+            </th>
+            <th>Product Type
+            </th>
+            <th>Unit
+            </th>
+            <th>Product Rate
+            </th>
+            <th>Description
+            </th>
+            <th>Is Active</th>
+
+        </thead>
+        <tbody>
+            @{int i = 0;}
+            @foreach (ProductDetails pd in ViewBag.productdetailslist)
+            {
+                var rowid = "row" + @i;
+                <tr id="@rowid">
+                    <td class="tddata">
+                        <a onclick="EnableInlineEdit('@rowid');" href="javascript:;">
+                            <img src="../../Content/images/Pencil-Edit.jpg" class="imgcls editbtn" />
+                        </a>
+                    </td>
+
+                    <td class="tddata">
+                        <label id="" class="data txtProductName" data-type="text" data-pk="@pd.Id" data-name="ProductName" >
+                            @pd.ProductName
+                        </label>
+                    </td>
+                    <td class="tddata">
+                        @pd.ProductType
+                    </td>
+                    <td class="tddata">
+                        <label id="" class="data ddlUnit" data-type="select" data-pk="@pd.Id" data-name="Unit" >
+                            @pd.Unit
+                        </label>
+                    </td>
+                    <td class="tddata">
+                        <label id="" class="data txtProductRate" data-type="text" data-pk="@pd.Id" data-name="ProductRate" >
+                            @pd.ProductRate
+                        </label>
+                    </td>
+                    <td class="tddata">
+                        <label id="" class="data txtDescrption" data-type="text" data-pk="@pd.Id" data-name="Descrption" >
+                            @pd.Descrption
+                        </label>
+                    </td>
+                    <td class="tddata">
+                        <label id="" class="data ddlIsActive" data-type="select" data-pk="@pd.Id" data-name="IsActive" >
+                            @if (@pd.IsActive)
+                            {
+                                @Html.Raw("Yes")
+                            }
+                            else
+                            {
+                                @Html.Raw("No")
+                            }
+                        </label>
+                    </td>
+                </tr>
+                            i++;
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div style="display: block; margin: auto; width: 130px; font-weight: bold; padding: 10px;">
+        No Records Found
+    </div>
+}

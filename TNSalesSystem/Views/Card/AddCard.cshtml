@@ -1,0 +1,550 @@
+﻿@model TNSalesSystem.Domain.Card.CardDetails
+@using TNSalesSystem.Domain.Common;
+@using TNSalesSystem.Domain.Card;
+@{
+    ViewBag.Title = "Add Card";
+    Layout = "~/Views/Shared/Main/_Layout.cshtml";
+    CardDetails ObjCardMember = new CardDetails();
+    ObjCardMember.CardMember = ViewBag.CardMember;
+}
+
+<script src="~/Content/jquery.modal-master/js/jquery-latest.min.js"></script>
+<link href="~/Content/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" />
+<link href="~/Content/jquery.modal-master/css/jquery.modal.theme-xenon.css" rel="stylesheet" />
+<link href="~/Content/jquery.modal-master/css/jquery.modal.theme-atlant.css" rel="stylesheet" />
+<script src="~/Content/jquery.modal-master/js/jquery.modal.js"></script>
+<script src="../../Content/jquery-ui-1.11.4.custom/external/jquery/jquery.js" type="text/javascript"></script>
+<link href="~/Content/MainCSS/Main.css" rel="stylesheet" />
+<script src="~/Content/chosen/chosen.jquery.min.js"></script>
+<link href="~/Content/chosen/chosen.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui-1.11.4.custom/Custom.css" rel="stylesheet" />
+<script>
+    var iCnt = 0;
+    var jCnt = 0;
+    var $j = jQuery.noConflict();
+    $j(document).ready(function () {
+        iCnt = $j('.bigmembers').length;
+        jCnt = $j('.smallmembers ').length;
+        $j(".chosen-select").chosen({ max_selected_options: 5 });
+    });
+    function AddBiggerTextBox() {
+        iCnt = iCnt + 1;
+        $j('#biggerstable').append('<tr id="biggersrow' + iCnt + '"><td>Big Member Name</td><td><input type="text" value="" name="bigmembername" class="bigmembers normaltextbox" />&nbsp;<select id="ddlGenderType" class="chosen-select normalselectbox" name="biggergender" style = "width:90px !important"><option value="Male">Male</option><option value="Female">Female</option><option value="Other">Other</option></select></td><td>Big Member Age  </td>  <td><input type="text" name="bigmemberage" value="" class="bigages normaltextbox" />&nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; <a href="javascript:;RemoveBiggerTextBox()"  style="color: white;">Remove</a></td></tr>');
+        $j(".chosen-select").chosen({ max_selected_options: 5 });
+    }
+    function RemoveBiggerTextBox() {
+        if (iCnt != 1) { $j('#biggersrow' + iCnt).remove(); iCnt = iCnt - 1; }
+    }
+    function AddSmallerTextBox() {
+        jCnt = jCnt + 1;
+        $j('#smallerstable').append('<tr id="smallerrow' + jCnt + '"><td style="padding: 0px;">Small member name</td><td><input type="text" value="" name="smallmembername" class="smallmembers normaltextbox" />&nbsp;<select class="chosen-select normalselectbox" name="smallergender" style = "width:90px !important"><option value="Male">Male</option><option value="Female">Female</option><option value="Other">Other</option></select></td><td>Small member age  </td>  <td><input type="text" name="smallmemberage" value="" class="smallages normaltextbox" />&nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; <a href="javascript:;RemoveSmallerTextBox()"  style="color: white;">Remove</a></td></tr>')
+        $j(".chosen-select").chosen({ max_selected_options: 5 });
+    }
+    function RemoveSmallerTextBox() {
+        $j('#smallerrow' + jCnt).remove(); jCnt = jCnt - 1;
+    }
+    function ValidateForm() {
+        var bigmembers, bigages, bigageschk, smallmembers, smallages, smallageschk;
+        $j(".bigmembers").each(function () {
+            bigmembers = this.value;
+        });
+        $j(".bigages").each(function () {
+            bigages = this.value;
+            if (this.value < 18) {
+                bigageschk = this.value;
+            }
+        });
+        $j(".smallmembers").each(function () {
+            smallmembers = this.value;
+        });
+        $j(".smallages").each(function () {
+            smallages = this.value;
+            if (this.value >= 18) {
+                smallageschk = this.value;
+            }
+        });
+        if (document.getElementById("txtCardHolderName").value == null || document.getElementById("txtCardHolderName").value == "") {
+            //bootbox.alert("Please enter the card holder name.", function () {
+            //    document.getElementById("txtCardHolderName").focus();
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'Please enter the card holder name.',
+                center: false,
+            });
+
+            return false;
+        }
+        else if (document.getElementById("txtMobileNo").value == null || document.getElementById("txtMobileNo").value == "") {
+            //bootbox.alert("Please enter the mobile no.", function () {
+            //    document.getElementById("txtMobileNo").focus();
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'Please enter the mobile no.',
+                center: false,
+            });
+
+            return false;
+        }
+        else if (document.getElementById("txtAddress1").value == null || document.getElementById("txtAddress1").value == "") {
+            //bootbox.alert("Please enter the address1.", function () {
+            //    document.getElementById("txtAddress1").focus();
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'Please enter the address1.',
+                center: false,
+            });
+            return false;
+        }
+        else if (document.getElementById("txtAddress2").value == null || document.getElementById("txtAddress2").value == "") {
+            //bootbox.alert("Please enter the address2.", function () {
+            //    document.getElementById("txtAddress2").focus();
+
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'Please enter the address2.',
+                center: false,
+            });
+
+            return false;
+        }
+        else if (document.getElementById("txtCity").value == null || document.getElementById("txtCity").value == "") {
+            //bootbox.alert("Please enter the city.", function () {
+            //    document.getElementById("txtCity").focus();
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'Please enter the city.',
+                center: false,
+            });
+
+            return false;
+        }
+        else if (document.getElementById("ddlDistrict").value == "0" || document.getElementById("ddlDistrict").value == 0) {
+            //bootbox.alert("Please select the district.", function () {
+            //    document.getElementById("ddlDistrict").focus();
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'Please select the district.',
+                center: false,
+            });
+
+            return false;
+        }
+        else if (document.getElementById("ddlTaluk").value == "0" || document.getElementById("ddlTaluk").value == 0) {
+            //bootbox.alert("Please select the taluk.", function () {
+            //    document.getElementById("ddlTaluk").focus();
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'Please select the taluk.',
+                center: false,
+            });
+
+            return false;
+        }
+        else if (document.getElementById("ddlState").value == "0" || document.getElementById("ddlState").value == 0) {
+            //bootbox.alert("Please select the state.", function () {
+            //    document.getElementById("ddlState").focus();
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'Please select the state.',
+                center: false,
+            });
+
+            return false;
+        }
+        else if (document.getElementById("ddlCoutry").value == "0" || document.getElementById("ddlCoutry").value == 0) {
+            //bootbox.alert("Please select the country.", function () {
+            //    document.getElementById("ddlCoutry").focus();
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'Please select the country.',
+                center: false,
+            });
+
+
+            return false;
+        }
+        else if (document.getElementById("txtNoOfCylinders").value == null || document.getElementById("txtNoOfCylinders").value == "") {
+            //bootbox.alert("Please enter the no of cylindres.", function () {
+            //    document.getElementById("txtNoOfCylinders").focus();
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'Please enter the no of cylindres.',
+                center: false,
+            });
+
+            return false;
+        }
+        else if (document.getElementById("ddlCityType").value == "0" || document.getElementById("ddlCityType").value == 0) {
+            //bootbox.alert("Please select the city type.", function () {
+            //    document.getElementById("ddlCityType").focus();
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'Please select the city type.',
+                center: false,
+            });
+            return false;
+        }
+        else if (document.getElementById("ddlCardType").value == "0" || document.getElementById("ddlCardType").value == 0) {
+            //bootbox.alert("Please select the city type.", function () {
+            //    document.getElementById("ddlCityType").focus();
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'Please select the card type.',
+                center: false,
+            });
+            return false;
+        }
+        else if (bigmembers.length < 1) {
+            //bootbox.alert("You are missing one are more bigger name boxes.", function () {
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'You are missing one are more bigger name boxes.',
+                center: false,
+            });
+
+            return false;
+        }
+        else if (bigages.length < 1) {
+            //bootbox.alert("You are missing one are more bigger age boxes.", function () {
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'You are missing one are more bigger age boxes.',
+                center: false,
+            });
+            return false;
+        }
+        else if (bigageschk != undefined && bigageschk.length >= 1) {
+            //bootbox.alert("You are entered one are more bigger age is less then 18.", function () {
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'You are entered one are more bigger age is less then 18.',
+                center: false,
+            });
+
+            return false;
+        }
+        else if (smallmembers != undefined && smallmembers.length < 1) {
+            //bootbox.alert("You are missing one are more smaller name boxes.", function () {
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'You are missing one are more smaller name boxes.',
+                center: false,
+            });
+
+            return false;
+        }
+        else if (smallages != undefined && smallages.length < 1) {
+            //bootbox.alert("You are entered one are more smaller age boxes.", function () {
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'You are entered one are more smaller age boxes.',
+                center: false,
+            });
+
+            return false;
+        }
+        else if (smallageschk != undefined && smallageschk.length >= 1) {
+            //bootbox.alert("You are entered one are more smaller age is greater then 18.", function () {
+            //});
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'You are entered one are more smaller age is greater then 18.',
+                center: false,
+            });
+
+            return false;
+        }
+        else {
+            document.getElementById("AddCard").submit();
+        }
+    }
+    function CallReset() {
+        window.location.reload();
+    }
+    function Changetext() {
+        $j("#firstbigger").val($j("#txtCardHolderName").val());
+    }
+</script>
+<style type="text/css">
+    td {
+        border: none;
+        font-size: 12px;
+        font-weight: 600;
+        color: black;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+    }
+
+    .chosen-choices {
+        border-radius: 4px;
+        height: 26px;
+    }
+</style>
+@using (Html.BeginForm("AddCard", "Card", FormMethod.Post, new { @id = "AddCard", @name = "AddCard" }))
+{
+    @Html.HiddenFor(Model => Model.CreatedBy, new { @id = "CreatedBy", Value = "101" })
+    @Html.Hidden("Frompage", (string)ViewBag.Frompage)
+    @Html.Hidden("CardId", (int)(ViewBag.CardId!=null ? ViewBag.CardId : 0))
+    <div id="center">
+        <table cellspacing="0" cellpadding="0" border="0" align="center">
+            <tbody>
+                <tr>
+                    <td class="reborder">New Card
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <table cellpadding="3px" cellspacing="3px" align="center" style="background-color: ButtonShadow;" border="0">
+        <tr>
+            <td colspan="4" class="RowHeadSection">Card Holder Details
+            </td>
+        </tr>
+        <tr>
+            <td>Enter card holder name
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.CardHolderName, new { @id = "txtCardHolderName", @class = "normaltextbox", @onchange = "Changetext()" })
+            </td>
+            <td>Enter mobile no
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.MobileNo, new { @id = "txtMobileNo", @class = "normaltextbox" })
+            </td>
+        </tr>
+        <tr>
+            <td>Enter alternate mobile no
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.AlternateMobileNo, new { @id = "txtAlternateMobileNo", @class = "normaltextbox" })
+            </td>
+            <td>Enter landline no
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.LandLineNo, new { @id = "txtLandLineNo", @class = "normaltextbox" })
+            </td>
+        </tr>
+        <tr>
+            <td>Enter address1
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Address1, new { @id = "txtAddress1", @class = "normaltextbox" })
+            </td>
+            <td>Enter address2
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Address2, new { @id = "txtAddress2", @class = "normaltextbox" })
+            </td>
+        </tr>
+        <tr>
+            <td>Enter city
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.City, new { @id = "txtCity", @class = "normaltextbox" })
+            </td>
+            <td>Select district
+            </td>
+            <td>
+                @Html.DropDownListFor(Model => Model.District, (SelectList)ViewBag.Districts, new { @id = "ddlDistrict", @class = "chosen-select normalselectbox", @style = "width: 180px;height: 28px;" })
+            </td>
+        </tr>
+        <tr>
+            <td>Select taluk
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.Taluk, (SelectList)ViewBag.Taluks, new { @id = "ddlTaluk", @class = "chosen-select normalselectbox", @style = "width: 180px;height: 28px;" })
+            </td>
+            <td>Select state
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.State, (SelectList)ViewBag.States, new { @id = "ddlState", @class = "chosen-select normalselectbox", @style = "width: 180px;height: 28px;" })
+            </td>
+        </tr>
+        <tr>
+            <td>Select country
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.Country, (SelectList)ViewBag.Coutries, new { @id = "ddlCoutry", @class = "chosen-select normalselectbox", @style = "width: 180px;height: 28px;" })
+            </td>
+            <td>Enter postal code
+            </td>
+            <td>
+                @Html.TextBoxFor(model => Model.PostalCode, new { @id = "txtPostalCode", @class = "normaltextbox" })
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="RowHeadSection">Card & Members Details
+            </td>
+        </tr>
+        <tr>
+            <td>No. of cylinders of the card
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.NoOfCylinders, new { @id = "txtNoOfCylinders", @class = "normaltextbox" })
+            </td>
+            <td>Is this AAY card
+            </td>
+            <td>
+                @Html.CheckBoxFor(Model => Model.IsAAYCard, new { @id = "chkIsAAYCard", @class = "normaltextbox" })
+            </td>
+        </tr>
+        <tr>
+            <td>Select city type
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.CityType, (SelectList)ViewBag.CityTypes, new { @id = "ddlCityType", @class = "chosen-select normalselectbox", @style = "width: 180px;height: 28px;" })
+            </td>
+            <td>Select card type
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.CardType, (SelectList)ViewBag.CardTypes, new { @id = "ddlCardType", @class = "chosen-select normalselectbox", @style = "width: 180px;height: 28px;" })
+            </td>
+        </tr>
+        <tr>
+            <td>Big Members  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;
+                <a href="javascript:;AddBiggerTextBox()" style="color: white;">Add</a> &nbsp;  &nbsp; &nbsp; 
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <table cellpadding="3px" cellspacing="3px" align="center" style="background-color: ButtonShadow;" border="0" id="biggerstable">
+                    @{int i = 1;}
+                    @if (ViewBag.Frompage == "EditCard" && ObjCardMember.CardMember != null && ObjCardMember.CardMember.Count > 0)
+                    {
+                        foreach (CardMember objCM in ObjCardMember.CardMember.Where(cm => cm.NameType == "Big"))
+                        {
+                            string rowid = "biggersrow" + i;
+                        <tr id="@rowid">
+                            <td>Big member name
+                            </td>
+                            <td>
+                                @if (i == 1)
+                                {
+                                    <input type="text" value="@objCM.BiggerSmallerName" id="firstbigger" name="bigmembername" class="bigmembers normaltextbox" />
+                                }
+                                else
+                                {
+                                    <input type="text" value="@objCM.BiggerSmallerName" name="bigmembername" class="bigmembers normaltextbox" />    
+                                }
+                                <select id="ddlGenderType" class="chosen-select normalselectbox" name="biggergender" style="width: 90px!important;">
+                                    @foreach (CommonData objcommondata in ViewBag.GenderTypes)
+                                    {
+                                        <option value="@objcommondata.Value" @(objCM.Gender == @objcommondata.Value ? "selected" : "") >@objcommondata.Name</option>
+                                    }
+                                </select>
+                            </td>
+                            <td>Big member age
+                            </td>
+                            <td>
+                                <input type="text" value="@objCM.BiggerSmallerAge" name="bigmemberage" class="bigages normaltextbox" />&nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; 
+                                @if (i != 1)
+                                {
+                                    <a href="javascript:;RemoveBiggerTextBox()" style="color: white;">Remove</a>
+                                }
+                            </td>
+
+                        </tr>
+                                i++;
+                        }
+                    }
+                    else
+                    {
+                        <tr id="biggersrow1">
+                            <td>Big member name
+                            </td>
+                            <td>
+                                <input type="text" value="" id="firstbigger" name="bigmembername" class="bigmembers normaltextbox" />
+                                @*@Html.DropDownList((SelectList)ViewBag.ProductTypes, new { @id = "ddlProductType", @class = "chosen-select normalselectbox", @style = "width: 180px;height: 28px;" })*@
+                                <select id="ddlGenderType" class="chosen-select normalselectbox" name="biggergender" style="width: 90px!important;">
+                                    @foreach (CommonData objcommondata in ViewBag.GenderTypes)
+                                    {
+                                        <option value="@objcommondata.Value">@objcommondata.Name</option>
+                                    }
+                                </select>
+                            </td>
+                            <td>Big member age
+                            </td>
+                            <td>
+                                <input type="text" value="" name="bigmemberage" class="bigages normaltextbox" />&nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;                                                       
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Smaller Members  &nbsp;  &nbsp; &nbsp;  
+                <a href="javascript:;AddSmallerTextBox()" style="color: white;">Add</a> &nbsp;  &nbsp; &nbsp; 
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <table cellpadding="3px" cellspacing="3px" align="center" style="background-color: ButtonShadow;" border="0" id="smallerstable">
+                    @{int j = 1;}
+                    @if (ViewBag.Frompage == "EditCard" && ObjCardMember.CardMember != null && ObjCardMember.CardMember.Where(temp => temp.NameType == "Small").Count() >= 1)
+                    {
+                        string rowid = "smallerrow" + j;
+                        foreach (CardMember objCM in ObjCardMember.CardMember.Where(cm => cm.NameType == "Small"))
+                        {
+                        <tr id="@rowid">
+                            <td style="padding: 0px;">Small member name</td>
+                            <td>
+                                <input type="text" value="@objCM.BiggerSmallerName" name="smallmembername" class="smallmembers normaltextbox">&nbsp;
+                            <select class="chosen-select normalselectbox" name="smallergender" style="width: 90px!important;">
+                                @foreach (CommonData objcommondata in ViewBag.GenderTypes)
+                                {
+                                    <option value="@objcommondata.Value" @(objCM.Gender == @objcommondata.Value ? "selected" : "") >@objcommondata.Name</option>
+                                }
+                            </select>
+                            </td>
+                            <td>Small member age  </td>
+                            <td>
+                                <input type="text" name="smallmemberage" value="@objCM.BiggerSmallerAge" class="smallages normaltextbox">&nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; <a href="javascript:;RemoveSmallerTextBox()" style="color: white;">Remove</a></td>
+                        </tr>
+                                j++;
+                        }
+                    }
+                </table>
+            </td>
+        </tr>
+    </table>      
+    <br />
+    <div style="width: 26%; display: block; margin-left: auto; margin-right: auto;">
+        <input type="button" value="Submit" class="myButton" onclick="ValidateForm()" />
+        <input type="button" value="Clear" class="myButton" onclick="CallReset()" />
+    </div>      
+}

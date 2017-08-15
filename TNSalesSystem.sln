@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TNSalesSystem", "TNSalesSystem\TNSalesSystem.csproj", "{7C83CB6F-2281-403B-B798-19DDFC74F708}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TNSalesSystem.Domain", "TNSalesSystem.Domain\TNSalesSystem.Domain.csproj", "{32E2DFEE-E88F-4C36-B500-A08A3A710EE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TNSalesSystem.Persistence", "TNSalesSystem.Persistence\TNSalesSystem.Persistence.csproj", "{604871FB-26A0-4C04-8FD8-04D9B20AE855}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TNSalesSystem.Service", "TNSalesSystem.Service\TNSalesSystem.Service.csproj", "{E3A1BE00-4BBD-49A5-ADDF-DB0ED566F142}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C83CB6F-2281-403B-B798-19DDFC74F708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C83CB6F-2281-403B-B798-19DDFC74F708}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C83CB6F-2281-403B-B798-19DDFC74F708}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C83CB6F-2281-403B-B798-19DDFC74F708}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32E2DFEE-E88F-4C36-B500-A08A3A710EE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32E2DFEE-E88F-4C36-B500-A08A3A710EE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32E2DFEE-E88F-4C36-B500-A08A3A710EE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32E2DFEE-E88F-4C36-B500-A08A3A710EE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{604871FB-26A0-4C04-8FD8-04D9B20AE855}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{604871FB-26A0-4C04-8FD8-04D9B20AE855}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{604871FB-26A0-4C04-8FD8-04D9B20AE855}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{604871FB-26A0-4C04-8FD8-04D9B20AE855}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3A1BE00-4BBD-49A5-ADDF-DB0ED566F142}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3A1BE00-4BBD-49A5-ADDF-DB0ED566F142}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3A1BE00-4BBD-49A5-ADDF-DB0ED566F142}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3A1BE00-4BBD-49A5-ADDF-DB0ED566F142}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+EndGlobal

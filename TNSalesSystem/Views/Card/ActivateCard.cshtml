@@ -1,0 +1,163 @@
+﻿@{
+    ViewBag.Title = "Activate Card";
+    Layout = "~/Views/Shared/Main/_Layout.cshtml";
+}
+<script src="~/Content/jquery.modal-master/js/jquery-latest.min.js"></script>
+<link href="~/Content/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" />
+<link href="~/Content/jquery.modal-master/css/jquery.modal.theme-xenon.css" rel="stylesheet" />
+<link href="~/Content/jquery.modal-master/css/jquery.modal.theme-atlant.css" rel="stylesheet" />
+<script src="~/Content/jquery.modal-master/js/jquery.modal.js"></script>
+<script src="../../Content/jquery-ui-1.11.4.custom/external/jquery/jquery.js" type="text/javascript"></script>
+<link href="~/Content/MainCSS/Main.css" rel="stylesheet" />
+<script src="~/Content/chosen/chosen.jquery.min.js"></script>
+<link href="~/Content/chosen/chosen.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui-1.11.4.custom/Custom.css" rel="stylesheet" />
+<script src="~/Content/jquery-ui-1.11.4.custom/Block%20UI/jquery.blockUI.js"></script>
+
+<style type="text/css">
+    td {
+        border: none;
+        font-size: 12px;
+        font-weight: 200;
+        color: black;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+    }
+
+        td a {
+            color: blue;
+            font-weight: normal;
+        }
+
+    .Data:hover {
+        background-color: white;
+    }
+
+    td a:hover {
+        color: blue;
+    }
+
+    th {
+        font-family: Arial,Verdana,sans-serif;
+        font-weight: bold;
+    }
+</style>
+<script>
+    var $j = jQuery.noConflict();
+    function ValidateForm() {
+        if (document.getElementById("CardId") == null && document.getElementById("CardId") == "") {
+            modal({
+                type: 'warning',
+                title: 'Warning',
+                text: 'Please enter the card id.',
+                center: false,
+            });
+            return false;
+        }
+        else {
+            document.getElementById("SearhForm").submit();
+        }
+    }
+    function CallActivateDeactivateCardAjax(Obj) {
+        $j.ajax({
+            url: '../Card/ActivateDeactivateCardAjax',
+            data: { Status: Obj.text.trim() == "Activate" ? "0" : "1", CardId: Obj.id.match(/\d+$/)[0] },
+            beforeSend: function () {
+                $j.blockUI({ message: '<h5 style="margin-top: 10px;"><img src="../Content/images/busy.gif" style="position: relative;top: 2px;" /> Please wait...</h2>' });
+            },
+            error: function () {
+                //alert("An error occoured while geting records");
+                modal({
+                    type: 'error',
+                    title: 'Error',
+                    text: 'An error occoured while geting records',
+                    center: false,
+                });
+            },
+            success: function (response) {
+                modal({
+                    type: 'success',
+                    title: 'Success',
+                    text: response,
+                    center: false,
+                });
+                Obj.text(Obj.text.trim() == "Activate" ? "De - Activate" : "Activate");
+                $j.unblockUI();
+            },
+            type: 'POST'
+        });
+
+    }
+</script>
+<form name="SearhForm" id="SearhForm" action="../Card/ActivateCard">
+    <div style="width: 100%; padding: 25px 0px 0px 0px; height: 50px;">
+        <table cellspacing="0" cellpadding="0" border="0" align="center" style="width: 50%;">
+            <tr>
+                <td style="border: none; font-size: 12px; font-weight: 600; color: black; font-family: Verdana, Arial, Helvetica, sans-serif;">Enter the card id
+                </td>
+                <td>
+                    @Html.TextBox("CardId", "", new { @id = "CardId", @class = "normaltextbox" })
+                </td>
+                <td>
+                    <input type="button" value="Search" class="myButton" onclick="ValidateForm()" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
+<br />
+
+@if (ViewBag.CardList != null)
+{
+    <table cellspacing="0" cellpadding="0" border="0" align="center">
+        <thead>
+            <th>Card Id
+            </th>
+            <th>Card Code
+            </th>
+            <th>Card Holder Name
+            </th>
+            <th>Active Status
+            </th>
+            <th>Created Date
+            </th>
+            <th>Edit
+            </th>
+            <th>Action
+            </th>
+        </thead>
+
+        @foreach (TNSalesSystem.Domain.Card.CardDetails ObjCD in ViewBag.CardList)
+        {
+            string id = "RowId" + ObjCD.CardId;
+            <tr class="Data">
+                <td>
+                    @ObjCD.CardId
+                </td>
+                <td>
+                    @ObjCD.CardCode
+                </td>
+                <td>
+                    @ObjCD.CardHolderName
+                </td>
+                <td>
+                    @(ObjCD.IsActive ? "In Active" : "Active")
+                </td>
+                <td>
+                    @ObjCD.CreatedDate.ToShortDateString()
+                </td>
+                <td>
+                    <a href="../Card/EditCard?CardId=@ObjCD.CardId">Edit
+                    </a>
+                </td>
+                <td>
+                    <a href="javascript:;CallActivateDeactivateCardAjax(@id);" id="@id">
+                        @(ObjCD.IsActive ? "Activate" : "De - Activate")
+                    </a>
+                </td>
+            </tr>
+        
+        }
+
+    </table>
+
+}

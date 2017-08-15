@@ -1,0 +1,50 @@
+﻿@model TNSalesSystem.Domain.Card.CardMember
+
+@{
+    Layout = null;
+}
+@if (ViewBag.type == "Big")
+{
+    for (int i = 0; i <= ViewBag.Cnt; i++)
+    {
+        
+    <td colspan="4">
+        <table cellpadding="3px" cellspacing="3px" align="center" style="background-color: ButtonShadow;" border="0" id="biggerstable">
+            <tr id="biggersrow1">
+                <td>Big member name
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.BiggerName, new { @class = "normaltextbox" })
+                </td>
+                <td>Big member age
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.BiggerAge, new { @class = "normaltextbox" })
+                </td>
+            </tr>
+        </table>
+    </td>
+    }
+}
+else
+{
+    for (int i = 0; i <= ViewBag.Cnt; i++)
+    {
+    <td colspan="4">
+        <table cellpadding="3px" cellspacing="3px" align="center" style="background-color: ButtonShadow;" border="0" id="smallerstable">
+            <tr id="smallerrow1">
+                <td style="padding: 5px;">Small member name
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.SmallerName, new { @class = "normaltextbox" })
+                </td>
+                <td>Small member age
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.SmallerAge, new { @class = "normaltextbox" })
+                </td>
+            </tr>
+        </table>
+    </td>
+    }
+}

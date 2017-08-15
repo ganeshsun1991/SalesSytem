@@ -1,0 +1,35 @@
+J:\Ganesh\TNSalesSystem\TNSalesSystem.Domain\bin\Debug\TNSalesSystem.Domain.dll
+J:\Ganesh\TNSalesSystem\TNSalesSystem.Domain\bin\Debug\TNSalesSystem.Domain.pdb
+J:\Ganesh\TNSalesSystem\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.dll
+J:\Ganesh\TNSalesSystem\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.pdb
+G:\TNSalesSystem\TNSalesSystem.Domain\bin\Debug\TNSalesSystem.Domain.dll
+G:\TNSalesSystem\TNSalesSystem.Domain\bin\Debug\TNSalesSystem.Domain.pdb
+G:\TNSalesSystem\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.csprojResolveAssemblyReference.cache
+G:\TNSalesSystem\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.dll
+G:\TNSalesSystem\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.pdb
+G:\Current Project\TNSalesSystem\TNSalesSystem.Domain\bin\Debug\TNSalesSystem.Domain.dll
+G:\Current Project\TNSalesSystem\TNSalesSystem.Domain\bin\Debug\TNSalesSystem.Domain.pdb
+G:\Current Project\TNSalesSystem\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.csprojResolveAssemblyReference.cache
+G:\Current Project\TNSalesSystem\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.dll
+G:\Current Project\TNSalesSystem\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.pdb
+J:\Ganesh\TNSalesSystem\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.csprojResolveAssemblyReference.cache
+G:\Current Project\TestProject\TNSalesSystem.Domain\bin\Debug\TNSalesSystem.Domain.dll
+G:\Current Project\TestProject\TNSalesSystem.Domain\bin\Debug\TNSalesSystem.Domain.pdb
+G:\Current Project\TestProject\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.csprojResolveAssemblyReference.cache
+G:\Current Project\TestProject\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.dll
+G:\Current Project\TestProject\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.pdb
+E:\DotNetPrograms\TestProject\TNSalesSystem.Domain\bin\Debug\TNSalesSystem.Domain.dll
+E:\DotNetPrograms\TestProject\TNSalesSystem.Domain\bin\Debug\TNSalesSystem.Domain.pdb
+E:\DotNetPrograms\TestProject\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.dll
+E:\DotNetPrograms\TestProject\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.pdb
+E:\DotNetPrograms\TestProject\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.csprojResolveAssemblyReference.cache
+J:\Ganesh\TestProject\TNSalesSystem.Domain\bin\Debug\TNSalesSystem.Domain.dll
+J:\Ganesh\TestProject\TNSalesSystem.Domain\bin\Debug\TNSalesSystem.Domain.pdb
+J:\Ganesh\TestProject\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.csprojResolveAssemblyReference.cache
+J:\Ganesh\TestProject\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.dll
+J:\Ganesh\TestProject\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.pdb
+G:\GANESH\TestProject\TNSalesSystem.Domain\bin\Debug\TNSalesSystem.Domain.dll
+G:\GANESH\TestProject\TNSalesSystem.Domain\bin\Debug\TNSalesSystem.Domain.pdb
+G:\GANESH\TestProject\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.csprojResolveAssemblyReference.cache
+G:\GANESH\TestProject\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.dll
+G:\GANESH\TestProject\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.pdb

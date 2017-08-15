@@ -1,0 +1,200 @@
+﻿@using TNSalesSystem.Domain.Card
+@using System.Collections;
+@{
+    ViewBag.Title = "UnitWiseProductAllotment";
+    Layout = "~/Views/Shared/Main/_Layout.cshtml";
+}
+@{
+    IList<UnitWiseProductAllotment> list = ViewBag.UnitWiseProductAllotmentList;
+    string[] ProductNames = list.Select(t => t.ProductName).Distinct().ToArray();
+}
+<script src="../../Content/jquery-ui-1.11.4.custom/external/jquery/jquery.js" type="text/javascript"></script>
+<link href="../../Content/x-editable-master/dist/jqueryui-editable/css/jqueryui-editable.css"
+    rel="stylesheet" />
+<script src="../../Content/x-editable-master/dist/jqueryui-editable/js/jqueryui-editable.js"></script>
+<script type="text/javascript" src="../../Content/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+<link href="../../Content/jquery-ui-1.11.4.custom/jquery-ui.css" rel="stylesheet"
+    type="text/css" />
+<script src="../../Content/jquery-ui-1.11.4.custom/jquery-ui.min.js" type="text/javascript"></script>
+<link href="../../Content/jquery-ui-1.11.4.custom/jquery-ui.structure.css" rel="stylesheet"
+    type="text/css" />
+<link href="../../Content/jquery-ui-1.11.4.custom/jquery-ui.structure.min.css" rel="stylesheet"
+    type="text/css" />
+<link href="../../Content/jquery-ui-1.11.4.custom/jquery-ui.theme.css" rel="stylesheet"
+    type="text/css" />
+<link href="../../Content/jquery-ui-1.11.4.custom/jquery-ui.theme.min.css" rel="stylesheet"
+    type="text/css" />
+<link href="~/Content/jquery-ui-1.11.4.custom/Custom.css" rel="stylesheet" />
+<link href="~/Content/MainCSS/Main.css" rel="stylesheet" />
+@*<link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/Content/bootstrap/js/bootstrap.js"></script>*@
+<script src="~/Content/chosen/chosen.jquery.min.js"></script>
+<link href="~/Content/chosen/chosen.min.css" rel="stylesheet" />
+<script src="~/Content/AlertJS/bootbox.min.js"></script>
+<script>
+    var $j = jQuery.noConflict();
+    $j(document).ready(function () {
+        $j.fn.editable.defaults.mode = 'inline';
+        $j("#accordion").accordion();
+        initEditable();
+    });
+    function isNumber(evt, element) {
+
+        var charCode = (evt.which) ? evt.which : event.keyCode
+
+        if (
+            (charCode != 45 || $(element).val().indexOf('-') != -1) &&      // “-” CHECK MINUS, AND ONLY ONE.
+            (charCode != 46 || $(element).val().indexOf('.') != -1) &&      // “.” CHECK DOT, AND ONLY ONE.
+            (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        {
+            return true;
+        }
+    }
+
+    function initEditable() {
+        $j('.txtUnit').editable({
+            type: 'text',
+            name: "Value",
+            url: '../Card/UnitWiseProductAllotmentAjaxUpdate', // Send ajax request with new value on /post
+            title: 'Enter data name',
+            inputclass: 'inlinetextbox',
+            validate: function (value) {
+                if ($j.trim(value) == '') {
+                    return 'This field is required';
+                }
+                else if (isNaN($j.trim(value))) {
+                    return 'Enter digits only';
+                }
+            }
+        });
+        $j('.txtProductQuantity').editable({
+            type: 'text',
+            name: "Descrption",
+            url: '../Card/UnitWiseProductAllotmentAjaxUpdate', // Send ajax request with new value on /post
+
+            inputclass: 'inlinetextbox',
+            validate: function (value) {
+                if ($j.trim(value) == '') {
+                    return 'This field is required';
+                }
+                else if (isNaN($j.trim(value))) {
+                    return 'Enter digits only';
+                }
+            }
+        });
+        $j('.editable').editable('toggleDisabled');
+        //$('.editbtn').click(function (e) {
+        //    $('.editable').editable('toggleDisabled');
+        //});
+    }
+    function EnableInlineEdit(rowid) {
+        $j('#' + rowid + ' .editable').editable('toggleDisabled');
+    }
+</script>
+<style type="text/css">
+    th {
+        font-weight: bold;
+    }
+
+    .ui-accordion-content {
+        height: auto !important;
+    }
+
+    .imgcls {
+        height: 30px;
+        width: 30px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+        .imgcls:hover {
+            cursor: pointer;
+        }
+
+    th, td {
+        padding: 3px 8px;
+    }
+
+    .data {
+        color: black !important;
+    }
+
+        .data:hover {
+            cursor: pointer;
+        }
+</style>
+<div id="center">
+    <table cellspacing="0" cellpadding="0" border="0" align="center">
+        <tbody>
+            <tr>
+                <td class="reborder">Unit Allocations
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="accordion">
+    @foreach (string ProductName in ProductNames)
+    {
+        <h3>@ProductName</h3>
+        <div style="height: auto;">
+            <table cellspacing="0" cellpadding="0" border="1" align="center" style="width: 50%; margin: auto;">
+                <tr>
+                    <th>Edit
+                    </th>
+                    <th>Card Type
+                    </th>
+                    @if (ProductName == "Kerosene")
+                    {
+                        <th>No of Cylinder
+                        </th>
+                    }
+                    else
+                    {
+                        <th>Unit
+                        </th>
+                    }
+                    <th>Product Quantity
+                    </th>
+                </tr>
+                @{decimal val = 0; int i = 0; var rowid = ""; }
+                @foreach (UnitWiseProductAllotment UWPA in ViewBag.UnitWiseProductAllotmentList)
+                {
+                    rowid = UWPA.ProductName + i;
+                    if (UWPA.ProductName == ProductName)
+                    {
+                    <tr id="@rowid">
+                        <td class="tddata">
+                            <a onclick="EnableInlineEdit('@rowid');" href="javascript:;">
+                                <img src="../../Content/images/Pencil-Edit.jpg" class="imgcls editbtn" />
+                            </a>
+                        </td>
+                        <td>
+                            @UWPA.CardType
+                        </td>
+                        <td>
+                            <label id="" class="data txtUnit" data-type="text" data-pk="@UWPA.Id" data-name="Unit" >
+                                @UWPA.Unit
+                            </label>
+                        </td>
+                        <td>
+                            <label id="" class="data txtProductQuantity" data-type="text" data-pk="@UWPA.Id" data-name="ProductQuantity" >
+                                @UWPA.ProductQuantity
+                            </label>
+                        </td>
+                    </tr>
+                        i++;
+                    }
+
+                }
+            </table>
+        </div>     
+    }
+</div>
+
+
+

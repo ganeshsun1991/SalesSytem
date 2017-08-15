@@ -1,0 +1,36 @@
+﻿@using TNSalesSystem.Domain.Card;
+@{
+    Layout = null;
+    CardDetails objCD = (CardDetails)ViewBag.Model;
+}
+<params>
+    @if (ViewBag.Model != null)
+    { 
+    <param name="CardHolderName" value="@objCD.CardHolderName" />
+    <param name="MobileNo" value="@objCD.MobileNo" />
+    <param name="AlternateMobileNo" value="@objCD.AlternateMobileNo" />
+    <param name="LandLineNo" value="@objCD.LandLineNo" />
+    <param name="Address1" value="@objCD.Address1" />
+    <param name="Address2" value="@objCD.Address2" />
+    <param name="City" value="@objCD.City" />
+    <param name="District" value="@objCD.District" />
+    <param name="Taluk" value="@objCD.Taluk" />
+    <param name="State" value="@objCD.State" />
+    <param name="Country" value="@objCD.Country" />
+    <param name="PostalCode" value="@objCD.PostalCode" />   
+    <param name="IsAAYCard" value="@(objCD.IsAAYCard ? "true" : "false")" />
+    <param name="NoOfCylinders" value="@(objCD.NoOfCylinders == null ? 0 : objCD.NoOfCylinders) " />
+    <param name="CityType" value="@objCD.CityType" />
+    <param name="CardType" value="@objCD.CardType" />
+    <param name="BiggerName" value="@(objCD.BiggerName != null && objCD.BiggerName.Count > 0 ? string.Join(",", objCD.BiggerName) : "")" />
+    <param name="BiggerAge" value="@(objCD.BiggerAge != null && objCD.BiggerAge.Count > 0 ? string.Join(",", objCD.BiggerAge) : "")" />
+    <param name="BiggerGender" value="@(objCD.BiggerGender != null && objCD.BiggerGender.Count > 0 ? string.Join(",", objCD.BiggerGender) : "")" />
+    <param name="SmallerName" value="@(objCD.SmallerName != null && objCD.SmallerName.Count > 0 ? string.Join(",", objCD.SmallerName) : "")" />
+    <param name="SmallerAge" value="@(objCD.SmallerAge != null && objCD.SmallerAge.Count > 0 ? string.Join(",", objCD.SmallerAge) : "")" />
+    <param name="SmallerGender" value="@(objCD.SmallerGender != null && objCD.SmallerGender.Count > 0 ? string.Join(",", objCD.SmallerGender) : "")" />
+    <param name="TotalUnits" value="@objCD.TotalUnits" />
+    <param name="UserId" value="@objCD.CreatedBy" />
+    <param name="Frompage" value="@objCD.Frompage" />
+    <param name="CardId" value="@objCD.CardId" />
+    }
+</params>

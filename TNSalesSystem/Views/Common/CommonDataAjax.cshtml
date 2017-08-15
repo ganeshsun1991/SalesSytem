@@ -1,0 +1,108 @@
+﻿@{
+    Layout = null;
+   
+}
+@using TNSalesSystem.Domain.Common
+<div style="padding-bottom: 12px; padding-left: 8px; padding-top: 10px; padding-right: 8px;">
+    <input type="button" id="btnAdd" class="myButton" value="Add New" onclick="OpenAddCommonDataDialog()" />
+    <div class="container" style="float: right;">
+        <!-- pager -->
+        @if (ViewBag.EndPage >= 1)
+        {
+            <ul class="pagination">
+                @if (ViewBag.CurrentPage >= 1)
+                {
+                    <li><a onclick="CallCommonDataAjax(@(ViewBag.CurrentPage == 1 ? 1 : (ViewBag.CurrentPage - 1)))">«</a></li>
+                }
+                @for (var page = 1; page <= ViewBag.EndPage; page++)
+                {
+
+                    <li><a class="@(page == ViewBag.CurrentPage ? "active" : "")"  onclick="CallCommonDataAjax(@page)">@page</a></li>
+                }
+                @if (ViewBag.CurrentPage <= ViewBag.TotalPages)
+                {
+            
+                    <li><a onclick="CallCommonDataAjax(@(ViewBag.CurrentPage == ViewBag.TotalPages ? ViewBag.TotalPages : (ViewBag.CurrentPage + 1)))">»</a></li>
+                }
+            </ul>
+        }
+
+
+    </div>
+</div>
+@if (ViewBag.commondatalist != null && ViewBag.commondatalist.Count > 0)
+{
+    <table id="TblTransactions" border="1" width="765px" cellpadding="0" cellspacing="0">
+        <thead>
+            <th>Edit
+            </th>
+            <th>Delete
+            </th>
+            <th>Common Type
+            </th>
+            <th>Data Name
+            </th>
+            <th>Data Value
+            </th>
+            <th>Description
+            </th>
+            <th>Is Deleted</th>
+        </thead>
+        <tbody>
+            @{int i = 0;}
+            @foreach (CommonData cd in ViewBag.commondatalist)
+            {
+                var rowid = "row" + @i;
+                <tr id="@rowid">
+                    <td class="tddata">
+                        <a onclick="EnableInlineEdit(@i);" href="javascript:;">
+                            <img src="../../Content/images/Pencil-Edit.jpg" class="imgcls editbtn" />
+                        </a>
+                    </td>
+                    <td class="tddata">
+                        <a onclick="CallDeleteAjax(@cd.Id)">
+                            <img src="../../Content/images/1433068706_-trash.png" class="imgcls" />
+                        </a>
+                    </td>
+                    <td class="tddata">
+
+                        @cd.Type
+                    </td>
+                    <td class="tddata">
+                        <label id="" class="data txtName" data-type="text" data-pk="@cd.Id" data-name="Name" data-original-title="Enter Name">
+                            @cd.Name
+                        </label>
+                    </td>
+                    <td class="tddata">
+                        <label id="" class="data txtValue" data-type="text" data-pk="@cd.Id" data-name="Value" data-original-title="Enter Value">
+                            @cd.Value
+                        </label>
+                    </td>
+                    <td class="tddata">
+                        <label id="" class="data txtDescrption" data-type="text" data-pk="@cd.Id" data-name="Descrption" data-original-title="Enter descrption">
+                            @cd.Descrption
+                        </label>
+
+                    </td>
+
+                    @if (cd.IsDeleted == true)
+                    {
+                        <td class="tddata">Yes</td>
+                    }
+                    else
+                    {
+                        <td class="tddata">No</td>
+                    }
+                </tr>
+                    i = i + 1;
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div style="font-weight: bold; text-align: center; padding: 0px 0px 10px 0px; color: black;">
+        No Records Found
+    </div>
+}
+

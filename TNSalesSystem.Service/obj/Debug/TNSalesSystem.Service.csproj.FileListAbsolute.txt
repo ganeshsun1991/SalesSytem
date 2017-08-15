@@ -1,0 +1,60 @@
+J:\Ganesh\TNSalesSystem\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Service.dll
+J:\Ganesh\TNSalesSystem\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Service.pdb
+J:\Ganesh\TNSalesSystem\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.dll
+J:\Ganesh\TNSalesSystem\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.pdb
+G:\TNSalesSystem\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Service.dll
+G:\TNSalesSystem\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Service.pdb
+G:\TNSalesSystem\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.csprojResolveAssemblyReference.cache
+G:\TNSalesSystem\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.dll
+G:\TNSalesSystem\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.pdb
+G:\Current Project\TNSalesSystem\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Service.dll
+G:\Current Project\TNSalesSystem\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Service.pdb
+G:\Current Project\TNSalesSystem\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.csprojResolveAssemblyReference.cache
+G:\Current Project\TNSalesSystem\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.dll
+G:\Current Project\TNSalesSystem\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.pdb
+J:\Ganesh\TNSalesSystem\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.csprojResolveAssemblyReference.cache
+J:\Ganesh\TNSalesSystem\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Domain.dll
+J:\Ganesh\TNSalesSystem\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Persistence.dll
+J:\Ganesh\TNSalesSystem\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Domain.pdb
+J:\Ganesh\TNSalesSystem\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Persistence.pdb
+G:\Current Project\TNSalesSystem\TNSalesSystem.Service\bin\Debug\Dapper.dll
+G:\Current Project\TNSalesSystem\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Domain.dll
+G:\Current Project\TNSalesSystem\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Persistence.dll
+G:\Current Project\TNSalesSystem\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Domain.pdb
+G:\Current Project\TNSalesSystem\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Persistence.pdb
+G:\Current Project\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Service.dll
+G:\Current Project\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Service.pdb
+G:\Current Project\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Domain.dll
+G:\Current Project\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Persistence.dll
+G:\Current Project\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Domain.pdb
+G:\Current Project\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Persistence.pdb
+G:\Current Project\TestProject\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.csprojResolveAssemblyReference.cache
+G:\Current Project\TestProject\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.dll
+G:\Current Project\TestProject\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.pdb
+E:\DotNetPrograms\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Service.dll
+E:\DotNetPrograms\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Service.pdb
+E:\DotNetPrograms\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Domain.dll
+E:\DotNetPrograms\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Persistence.dll
+E:\DotNetPrograms\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Domain.pdb
+E:\DotNetPrograms\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Persistence.pdb
+E:\DotNetPrograms\TestProject\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.csprojResolveAssemblyReference.cache
+E:\DotNetPrograms\TestProject\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.dll
+E:\DotNetPrograms\TestProject\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.pdb
+J:\Ganesh\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Service.dll
+J:\Ganesh\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Service.pdb
+J:\Ganesh\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Domain.dll
+J:\Ganesh\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Persistence.dll
+J:\Ganesh\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Domain.pdb
+J:\Ganesh\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Persistence.pdb
+J:\Ganesh\TestProject\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.csprojResolveAssemblyReference.cache
+J:\Ganesh\TestProject\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.dll
+J:\Ganesh\TestProject\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.pdb
+G:\GANESH\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Service.dll
+G:\GANESH\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Service.pdb
+G:\GANESH\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Domain.dll
+G:\GANESH\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Persistence.dll
+G:\GANESH\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Domain.pdb
+G:\GANESH\TestProject\TNSalesSystem.Service\bin\Debug\TNSalesSystem.Persistence.pdb
+G:\GANESH\TestProject\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.csprojResolveAssemblyReference.cache
+G:\GANESH\TestProject\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.dll
+G:\GANESH\TestProject\TNSalesSystem.Service\obj\Debug\TNSalesSystem.Service.pdb
