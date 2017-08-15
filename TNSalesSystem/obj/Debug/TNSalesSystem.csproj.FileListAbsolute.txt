@@ -87,3 +87,14 @@ G:\GANESH\TestProject\TNSalesSystem\bin\TNSalesSystem.Service.pdb
 G:\GANESH\TestProject\TNSalesSystem\obj\Debug\TNSalesSystem.csprojResolveAssemblyReference.cache
 G:\GANESH\TestProject\TNSalesSystem\obj\Debug\TNSalesSystem.dll
 G:\GANESH\TestProject\TNSalesSystem\obj\Debug\TNSalesSystem.pdb
+G:\GANESH\ProjectWorkSpace\TNSalesSystem\bin\TNSalesSystem.dll
+G:\GANESH\ProjectWorkSpace\TNSalesSystem\bin\TNSalesSystem.pdb
+G:\GANESH\ProjectWorkSpace\TNSalesSystem\bin\TNSalesSystem.Domain.dll
+G:\GANESH\ProjectWorkSpace\TNSalesSystem\bin\TNSalesSystem.Persistence.dll
+G:\GANESH\ProjectWorkSpace\TNSalesSystem\bin\TNSalesSystem.Service.dll
+G:\GANESH\ProjectWorkSpace\TNSalesSystem\bin\TNSalesSystem.Domain.pdb
+G:\GANESH\ProjectWorkSpace\TNSalesSystem\bin\TNSalesSystem.Persistence.pdb
+G:\GANESH\ProjectWorkSpace\TNSalesSystem\bin\TNSalesSystem.Service.pdb
+G:\GANESH\ProjectWorkSpace\TNSalesSystem\obj\Debug\TNSalesSystem.dll
+G:\GANESH\ProjectWorkSpace\TNSalesSystem\obj\Debug\TNSalesSystem.pdb
+G:\GANESH\ProjectWorkSpace\TNSalesSystem\obj\Debug\TNSalesSystem.csprojResolveAssemblyReference.cache

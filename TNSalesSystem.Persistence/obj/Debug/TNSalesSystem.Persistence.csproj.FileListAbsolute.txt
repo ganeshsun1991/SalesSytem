@@ -49,3 +49,10 @@ G:\GANESH\TestProject\TNSalesSystem.Persistence\bin\Debug\TNSalesSystem.Domain.p
 G:\GANESH\TestProject\TNSalesSystem.Persistence\obj\Debug\TNSalesSystem.Persistence.csprojResolveAssemblyReference.cache
 G:\GANESH\TestProject\TNSalesSystem.Persistence\obj\Debug\TNSalesSystem.Persistence.dll
 G:\GANESH\TestProject\TNSalesSystem.Persistence\obj\Debug\TNSalesSystem.Persistence.pdb
+G:\GANESH\ProjectWorkSpace\TNSalesSystem.Persistence\bin\Debug\TNSalesSystem.Persistence.dll
+G:\GANESH\ProjectWorkSpace\TNSalesSystem.Persistence\bin\Debug\TNSalesSystem.Persistence.pdb
+G:\GANESH\ProjectWorkSpace\TNSalesSystem.Persistence\bin\Debug\TNSalesSystem.Domain.dll
+G:\GANESH\ProjectWorkSpace\TNSalesSystem.Persistence\bin\Debug\TNSalesSystem.Domain.pdb
+G:\GANESH\ProjectWorkSpace\TNSalesSystem.Persistence\obj\Debug\TNSalesSystem.Persistence.csprojResolveAssemblyReference.cache
+G:\GANESH\ProjectWorkSpace\TNSalesSystem.Persistence\obj\Debug\TNSalesSystem.Persistence.dll
+G:\GANESH\ProjectWorkSpace\TNSalesSystem.Persistence\obj\Debug\TNSalesSystem.Persistence.pdb
