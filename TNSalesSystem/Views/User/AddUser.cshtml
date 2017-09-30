@@ -11,9 +11,7 @@
 <script src="~/Content/jsgrid/jsgrid.js"></script>
 
 <script>
-    var $j = jQuery.noConflict();
     $j(document).ready(function () {
-        //  $j('[data-toggle="popover"]').popover();
         $j(".chosen-select").chosen({ max_selected_options: 5 });
         CreateUserListJsGrid();
     });
@@ -21,200 +19,59 @@
         var letterNumber = /^[0-9a-zA-Z]+$/;
         if (document.getElementById("txtUserName").value == null || document.getElementById("txtUserName").value == "") {
             alert("Please enter the user name.");
-            //bootbox.alert("Please enter the user name.", function () {
-            //    document.getElementById("txtUserName").focus();
-            //});
-            //modal({
-            //    type: 'warning',
-            //    title: 'Warning',
-            //    text: 'Please enter the user name.',
-            //    center: false,
-            //});
             return false;
         }
         if (document.getElementById("txtLoginName").value == null || document.getElementById("txtLoginName").value == "") {
             alert("Please enter the loginname.");
-            //bootbox.alert("Please enter the loginname.", function () {
-            //    document.getElementById("txtLoginName").focus();
-            //});
-            //modal({
-            //    type: 'warning',
-            //    title: 'Warning',
-            //    text: 'Please enter the loginname.',
-            //    center: false,
-            //});
             return false;
         }
-        //if (document.getElementById("txtLoginName").value != null || document.getElementById("txtLoginName").value != "") {
-        //    return CheckLoginnameAvaliablityAjax();
-        //}
         if (document.getElementById("txtPassword").value == null || document.getElementById("txtPassword").value == "") {
             alert("Please enter the password.");
-            //bootbox.alert("Please enter the password.", function () {
-            //    document.getElementById("txtPassword").focus();
-            //});
-            //modal({
-            //    type: 'warning',
-            //    title: 'Warning',
-            //    text: 'Please enter the password.',
-            //    center: false,
-            //});
             return false;
         }
         if (document.getElementById("txtRePassword").value == null || document.getElementById("txtRePassword").value == "") {
             alert("Please enter the re password.");
-            //bootbox.alert("Please enter the re password.", function () {
-            //    document.getElementById("txtRePassword").focus();
-            //});
-            //modal({
-            //    type: 'warning',
-            //    title: 'Warning',
-            //    text: 'Please enter the re password.',
-            //    center: false,
-            //});
             return false;
         }
         if ((document.getElementById("txtPassword").value.match(letterNumber))) {
             alert("Password shoid contain numbers,digits,special charactes.");
-            //bootbox.alert("Password shoid contain numbers,digits,special charactes.", function () {
-            //    document.getElementById("txtRePassword").focus();
-            //});
-            //modal({
-            //    type: 'warning',
-            //    title: 'Warning',
-            //    text: 'Password should contain numbers,digits,special characters.',
-            //    center: false,
-            //});
             return false;
         }
         if (document.getElementById("txtPassword").value != document.getElementById("txtRePassword").value) {
             alert("Please enter the re password.");
-            //bootbox.alert("You entered password and re-password dose not match.", function () {
-            //    document.getElementById("txtRePassword").focus();
-            //});
-            //modal({
-            //    type: 'warning',
-            //    title: 'Warning',
-            //    text: 'You entered password and re-password dose not match.',
-            //    center: false,
-            //});
             return false;
         }
         if (document.getElementById("txtMobileNo").value == null || document.getElementById("txtMobileNo").value == "") {
             alert("Please enter the mobile no.");
-            //bootbox.alert("Please enter the mobile no.", function () {
-            //    document.getElementById("txtMobileNo").focus();
-            //});
-            //modal({
-            //    type: 'warning',
-            //    title: 'Warning',
-            //    text: 'Please enter the mobile no.',
-            //    center: false,
-            //});
             return false;
         }
         if (document.getElementById("txtAddres1").value == null || document.getElementById("txtAddres1").value == "") {
             alert("Please enter the address1.");
-            //bootbox.alert("Please enter the address1.", function () {
-            //    document.getElementById("txtAddres1").focus();
-            //});
-            //modal({
-            //    type: 'warning',
-            //    title: 'Warning',
-            //    text: 'Please enter the address1.',
-            //    center: false,
-            //});
             return false;
         }
         if (document.getElementById("txtAddres2").value == null || document.getElementById("txtAddres2").value == "") {
             alert("Please enter the address2.");
-            //bootbox.alert("Please enter the address2.", function () {
-            //    document.getElementById("txtAddres2").focus();
-            //});
-            //modal({
-            //    type: 'warning',
-            //    title: 'Warning',
-            //    text: 'Please enter the address2.',
-            //    center: false,
-            //});
             return false;
         }
         if (document.getElementById("txtCity").value == null || document.getElementById("txtCity").value == "") {
             alert("Please enter the city.");
-            //bootbox.alert("Please enter the city.", function () {
-            //    document.getElementById("txtCity").focus();
-            //});
-            //modal({
-            //    type: 'warning',
-            //    title: 'Warning',
-            //    text: 'Please enter the city.',
-            //    center: false,
-            //});
             return false;
         }
         if (document.getElementById("ddlDistrict").value == "0" || document.getElementById("ddlDistrict").value == 0) {
             alert("Please select district.");
-            //bootbox.alert("Please select district.", function () {
-            //});
-            //modal({
-            //    type: 'warning',
-            //    title: 'Warning',
-            //    text: 'Please select district.',
-            //    center: false,
-            //});
             document.getElementById("ddlDistrict").focus();
             return false;
         }
-        if (document.getElementById("ddlTaluk").value == "0" || document.getElementById("ddlTaluk").value == 0) {
-            alert("Please select taluk.");
-            //bootbox.alert("Please select taluk.", function () {
-            //    document.getElementById("ddlTaluk").focus();
-            //});
-            //modal({
-            //    type: 'warning',
-            //    title: 'Warning',
-            //    text: 'Please select taluk.',
-            //    center: false,
-            //});
-            return false;
-        }
-        if (document.getElementById("ddlState").value == "0" || document.getElementById("ddlTaluk").value == 0) {
+        if (document.getElementById("ddlState").value == "0" || document.getElementById("ddlState").value == 0) {
             alert("Please select state");
-            //bootbox.alert("Please select state.", function () {
-            //    document.getElementById("ddlState").focus();
-            //});
-            //modal({
-            //    type: 'warning',
-            //    title: 'Warning',
-            //    text: 'Please select state.',
-            //    center: false,
-            //});
             return false;
         }
-        if (document.getElementById("ddlCoutry").value == "0" || document.getElementById("ddlTaluk").value == 0) {
+        if (document.getElementById("ddlCoutry").value == "0" || document.getElementById("ddlCoutry").value == "") {
             alert("Please select country.");
-            //bootbox.alert("Please select country.", function () {
-            //    document.getElementById("ddlCoutry").focus();
-            //});
-            modal({
-                type: 'warning',
-                title: 'Warning',
-                text: 'Please select country.',
-                center: false,
-            });
             return false;
         }
         if (document.getElementById("ddlRole").value == "0" || document.getElementById("ddlRole").value == 0) {
-            alert("Please select country.");
-            //bootbox.alert("Please select role.", function () {
-            //    document.getElementById("ddlRole").focus();
-            //});
-            //modal({
-            //    type: 'warning',
-            //    title: 'Warning',
-            //    text: 'Please select role.',
-            //    center: false,
-            //});
+            alert("Please select Role.");
             return false;
         }
         else {
@@ -270,27 +127,14 @@
         $j.ajax({
             url: '../User/CheckLoginnameAvaliablityAjax?Loginname=' + $j("#txtLoginName").val(),
             error: function () {
-                // alert("An error occoured while geting shop name");
-                modal({
-                    type: 'error',
-                    title: 'Error',
-                    text: 'An error occoured while geting records',
-                    center: false,
-                });
+                alert("An error occoured while geting shop name");
             },
             beforeSend: function () {
 
             },
             success: function (response) {
                 if (response != "ok") {
-                    //bootbox.alert("You entered loginname already exists enter different loginname.", function () {
-                    //});
-                    modal({
-                        type: 'warning',
-                        title: 'Warning',
-                        text: 'You entered loginname already exists enter different loginname.',
-                        center: false,
-                    });
+                    alert("You entered loginname already exists enter different loginname.");
                     $j("#txtLoginName").val('');
                     return false;
                 }
@@ -339,7 +183,7 @@
                 <td>
                     @Html.TextBoxFor(model => model.MobileNo, new { @id = "txtMobileNo", @class = "normaltextbox" })
                 </td>
-                <td class="cotrolnametd">Eneter user alternative mobile no
+                <td class="cotrolnametd">Enter user alternative mobile no
                 </td>
                 <td>
                     @Html.TextBoxFor(model => model.AlternateMobileNo, new { @id = "txtAltMobileNo", @class = "normaltextbox" })
@@ -375,30 +219,25 @@
                 <td>
                     @Html.DropDownListFor(Model => Model.District, (SelectList)ViewBag.Districts, new { @id = "ddlDistrict", @class = "chosen-select normalselectbox", @style = "width: 180px;height: 28px;" })
                 </td>
-                <td class="cotrolnametd">Select taluk
-                </td>
-                <td>
-                    @Html.DropDownListFor(model => model.Taluk, (SelectList)ViewBag.Taluks, new { @id = "ddlTaluk", @class = "chosen-select normalselectbox", @style = "width: 180px;height: 28px;" })
-                </td>
-            </tr>
-            <tr>
                 <td class="cotrolnametd">Select state
                 </td>
                 <td>
                     @Html.DropDownListFor(model => model.State, (SelectList)ViewBag.States, new { @id = "ddlState", @class = "chosen-select normalselectbox", @style = "width: 180px;height: 28px;" })
                 </td>
+            </tr>
+            <tr>
                 <td class="cotrolnametd">Select country
                 </td>
                 <td>
                     @Html.DropDownListFor(model => model.Country, (SelectList)ViewBag.Coutries, new { @id = "ddlCoutry", @class = "chosen-select normalselectbox", @style = "width: 180px;height: 28px;" })
                 </td>
-            </tr>
-            <tr>
                 <td class="cotrolnametd">Enter postal code
                 </td>
                 <td>
                     @Html.TextBoxFor(model => Model.PostalCode, new { @id = "txtPostalCode", @class = "normaltextbox" })
                 </td>
+            </tr>
+            <tr>
                 <td class="cotrolnametd">Select role
                 </td>
                 <td>

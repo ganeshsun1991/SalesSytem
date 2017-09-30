@@ -37,3 +37,8 @@ G:\GANESH\ProjectWorkSpace\TNSalesSystem.Domain\bin\Debug\TNSalesSystem.Domain.d
 G:\GANESH\ProjectWorkSpace\TNSalesSystem.Domain\bin\Debug\TNSalesSystem.Domain.pdb
 G:\GANESH\ProjectWorkSpace\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.dll
 G:\GANESH\ProjectWorkSpace\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.pdb
+F:\ProjectWorkSpace\TestProject\TNSalesSystem.Domain\bin\Debug\TNSalesSystem.Domain.dll
+F:\ProjectWorkSpace\TestProject\TNSalesSystem.Domain\bin\Debug\TNSalesSystem.Domain.pdb
+F:\ProjectWorkSpace\TestProject\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.csprojResolveAssemblyReference.cache
+F:\ProjectWorkSpace\TestProject\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.dll
+F:\ProjectWorkSpace\TestProject\TNSalesSystem.Domain\obj\Debug\TNSalesSystem.Domain.pdb

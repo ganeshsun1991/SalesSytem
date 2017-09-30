@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="~/Content/menu/mui.min.css" rel="stylesheet" />
     <link href="~/Content/menu/style.css" rel="stylesheet" />
+    <link href="~/Content/js/jquery-ui.css" rel="stylesheet" />
     <script src="~/Content/js/jquery-1.12.4.js"></script>
+    <script src="~/Content/js/jquery-ui.js"></script>
     <script src="~/Content/menu/script.js"></script>
     <script src="~/Content/menu/mui.min.js"></script>
 </head>
+<script>
+    var $j = jQuery.noConflict();
+</script>
 <body id="bodyid">
 
     <div id="sidedrawer" class="mui--no-user-select">
@@ -21,13 +26,13 @@
             <li>
                 <strong>User</strong>
                 <ul>
-                    <li><a href="../User/AddUser">Add/Edit/Delete User</a></li> 
+                    <li><a href="../User/AddUser">Add/Edit/Delete User</a></li>
                 </ul>
             </li>
             <li>
                 <strong>Shop</strong>
                 <ul>
-                    <li><a href="../Shop/ShopDataNew">Add/Edit/Delete Shop</a></li>                   
+                    <li><a href="../Shop/ShopDataNew">Add/Edit/Delete Shop</a></li>
                 </ul>
             </li>
             <li>

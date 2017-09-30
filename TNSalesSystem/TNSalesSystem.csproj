@@ -170,6 +170,8 @@
     <Content Include="Content\jsgrid\jsgrid.min.js" />
     <Content Include="Content\jsgrid\theme.css" />
     <Content Include="Content\js\jquery-1.12.4.js" />
+    <Content Include="Content\js\jquery-ui.css" />
+    <Content Include="Content\js\jquery-ui.js" />
     <Content Include="Content\menu\mui.min.css" />
     <Content Include="Content\menu\mui.min.js" />
     <Content Include="Content\menu\script.js" />
